@@ -13,7 +13,8 @@ A desktop remote control for Roku TVs (and any Roku device), built with Python a
 - **Input switching** -- HDMI 1-3, TV Tuner
 - **App shortcuts** -- Netflix, YouTube, Prime Video, Disney+
 - **Keyboard shortcuts** -- Arrow keys, Enter, Backspace, Space, +/-, M, Escape
-- **Remembers your TV's IP** between sessions
+- **Customizable key bindings** -- Remap any button via the built-in settings page
+- **Remembers your TV's IP and key bindings** between sessions
 - **No dependencies** beyond the Python standard library (tkinter)
 
 ## Getting Started
@@ -43,7 +44,21 @@ Double-click `build_exe.bat` or run it from a terminal. It installs [PyInstaller
 | `-` | Volume Down |
 | `M` | Mute |
 
-Keyboard shortcuts are disabled while the IP address field is focused.
+These are the defaults. Keyboard shortcuts are disabled while the IP address field is focused.
+
+### Customizing Key Bindings
+
+Click the **⚙ Keys** button next to the title to open the key bindings settings. Click any field and press the key you want to assign. Use the **✕** button to remove a binding. Changes are saved to `~/.roku_remote_config.json` and persist across sessions.
+
+## Development
+
+For auto-reloading during development (requires `pip install watchdog`):
+
+```
+python dev.py
+```
+
+This watches all `.py` files and restarts the app on save.
 
 ## How It Works
 
