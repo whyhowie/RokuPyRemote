@@ -1,6 +1,8 @@
 # RokuPyRemote
 
 > **Disclaimer:** This project is not affiliated with, endorsed by, or associated with Roku, Inc. It has only been tested on a **TCL 43S517** Roku TV. It should work with any Roku device that supports the External Control Protocol, but your mileage may vary.
+>
+> This project exists because there are no free Roku remote options on the Windows Store. That said, I won't be actively maintaining or fixing bugs beyond my own use case -- it works on my TV, and I don't have access to other models to test against. Bug reports and PRs are welcome, but no guarantees on turnaround.
 
 A desktop remote for Roku TVs built with Python and tkinter, using Roku's [External Control Protocol (ECP)](https://developer.roku.com/docs/developer-program/debugging/external-control-api.md).
 
@@ -62,4 +64,4 @@ python dev.py
 
 ## License
 
-This project does not currently specify a license.
+This project was vibe coded with [Claude Code](https://claude.ai/claude-code) and is released under the [MIT License](LICENSE).
