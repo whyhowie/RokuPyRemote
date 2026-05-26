@@ -6,8 +6,9 @@ REM  Run this ONCE. After it finishes you never need Python again.
 REM  Requirement: Python installed from python.org with
 REM               "Add Python to PATH" checked during install.
 REM
-REM  Keep build_exe.bat, roku_remote.py and roku_remote.ico together
-REM  in the SAME folder, then just double-click this file.
+REM  Keep build_exe.bat, roku_remote.py, roku_remote/ folder and
+REM  roku_remote.ico together in the SAME folder, then just
+REM  double-click this file.
 REM =====================================================================
 setlocal
 cd /d "%~dp0"
