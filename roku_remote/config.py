@@ -53,3 +53,17 @@ def load_keybindings():
 
 def save_keybindings(keybindings):
     save_config({"keybindings": keybindings})
+
+
+DEFAULT_FONT_SIZE = 12
+
+def load_settings():
+    cfg = load_config()
+    return {
+        "tray_icon": cfg.get("tray_icon", True),
+        "font_size": cfg.get("font_size", DEFAULT_FONT_SIZE),
+    }
+
+
+def save_settings(settings):
+    save_config(settings)

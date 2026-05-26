@@ -1,68 +1,64 @@
 # RokuPyRemote
 
-A desktop remote control for Roku TVs (and any Roku device), built with Python and tkinter. It uses Roku's [External Control Protocol (ECP)](https://developer.roku.com/docs/developer-program/debugging/external-control-api.md) to send commands over your local network.
+> **Disclaimer:** This project is not affiliated with, endorsed by, or associated with Roku, Inc. It has only been tested on a **TCL 43S517** Roku TV. It should work with any Roku device that supports the External Control Protocol, but your mileage may vary.
+
+A desktop remote for Roku TVs built with Python and tkinter, using Roku's [External Control Protocol (ECP)](https://developer.roku.com/docs/developer-program/debugging/external-control-api.md).
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue) ![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
 
+![Screenshot](screenshot.png)
+
 ## Features
 
-- **D-pad navigation** -- Up, Down, Left, Right, OK/Select
-- **Media controls** -- Play/Pause, Rewind, Fast Forward
-- **Volume** -- Volume Up, Volume Down, Mute
-- **Power** -- Power On / Power Off
-- **Input switching** -- HDMI 1-3, TV Tuner
-- **App shortcuts** -- Netflix, YouTube, Prime Video, Disney+
-- **Keyboard shortcuts** -- Arrow keys, Enter, Backspace, Space, +/-, M, Escape
-- **Customizable key bindings** -- Remap any button via the built-in settings page
-- **Remembers your TV's IP and key bindings** between sessions
-- **No dependencies** beyond the Python standard library (tkinter)
+- D-pad, media controls, volume, power, input switching, app shortcuts
+- Customizable key bindings with a built-in settings page
+- Pin-to-top mode and system tray support
+- Adjustable font size
+- Persists IP, key bindings, and settings across sessions
+- No external dependencies (standard library only)
 
-## Getting Started
-
-### Run from source
+## Usage
 
 ```
 python roku_remote.py
 ```
 
-Enter your Roku TV's local IP address (e.g. `192.168.1.42`) and click **Connect**.
+Enter your TV's local IP and click **Connect**. You can also build a standalone `.exe` with `build_exe.bat` (uses [PyInstaller](https://pyinstaller.org)).
 
-### Build a standalone `.exe` (Windows)
-
-Double-click `build_exe.bat` or run it from a terminal. It installs [PyInstaller](https://pyinstaller.org) and produces a single `dist/roku_remote.exe` you can run without Python installed.
-
-## Keyboard Shortcuts
+## Default Keyboard Shortcuts
 
 | Key | Action |
 |---|---|
-| Arrow keys | D-pad navigation |
-| Enter | Select / OK |
+| Arrow keys | D-pad |
+| Enter | Select |
 | Backspace | Back |
 | Escape | Home |
-| Space | Play / Pause |
-| `+` / `=` | Volume Up |
-| `-` | Volume Down |
+| Space | Play/Pause |
+| `=` / `-` | Volume Up/Down |
 | `M` | Mute |
 
-These are the defaults. Keyboard shortcuts are disabled while the IP address field is focused.
-
-### Customizing Key Bindings
-
-Click the **⚙ Keys** button next to the title to open the key bindings settings. Click any field and press the key you want to assign. Use the **✕** button to remove a binding. Changes are saved to `~/.roku_remote_config.json` and persist across sessions.
-
-## Development
-
-For auto-reloading during development (requires `pip install watchdog`):
-
-```
-python dev.py
-```
-
-This watches all `.py` files and restarts the app on save.
+Open **⚙ Settings** to remap keys, remove bindings, or assign keys to additional buttons (rewind, power, HDMI inputs, etc.).
 
 ## How It Works
 
 The app sends HTTP POST requests to port 8060 on your Roku device, which is the standard ECP endpoint. No pairing or authentication is required -- the device just needs to be on the same local network.
+
+### Enabling Network Access on Your Roku
+
+Your Roku must have **Network Access** enabled for external control to work:
+
+1. Go to **Settings** > **System** > **Advanced system settings** > **Control by mobile apps**
+2. Set **Network access** to **Default** or **Permissive**
+
+Without this, the TV will reject commands from the app.
+
+## Development
+
+Auto-reload on save (requires `pip install watchdog`):
+
+```
+python dev.py
+```
 
 ## License
 
